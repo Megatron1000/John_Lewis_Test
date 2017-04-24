@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import NetAborter
+@testable import JohnLewisTest
 
 class HTTPClientTests: XCTestCase {
 
@@ -38,7 +38,7 @@ class HTTPClientTests: XCTestCase {
 
     func testClientReturnsFailureResultWhenThereIsAnError() {
 
-        let testError = ProductsService.ProductsServiceError.emptyResponse
+        let testError = HTTPClient.HTTPClientError.emptyResponse
 
         let mockedSession = NetworkSessionMock()
         mockedSession.completionResult = (nil, nil, testError)

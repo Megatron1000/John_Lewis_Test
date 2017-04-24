@@ -9,11 +9,17 @@
 import Foundation
 
 class HTTPClient {
+    
+    // MARK: Error Enums
+    
+    enum HTTPClientError: Error {
+        case emptyResponse
+    }
 
     // MARK: Result enum
 
     enum HTTPClientResult {
-        case success(data: Data?)
+        case success(data: Data)
         case failure(error: Error)
     }
 
@@ -35,6 +41,11 @@ class HTTPClient {
 
             if let error = error {
                 completion(.failure(error: error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(error: HTTPClientError.emptyResponse))
                 return
             }
 
