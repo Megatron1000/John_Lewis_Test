@@ -12,7 +12,8 @@
 		AB59B4DD1EAE9BB700650FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB59B4DB1EAE9BB700650FC8 /* Main.storyboard */; };
 		AB59B4DF1EAE9BB700650FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB59B4DE1EAE9BB700650FC8 /* Assets.xcassets */; };
 		AB59B4E21EAE9BB700650FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB59B4E01EAE9BB700650FC8 /* LaunchScreen.storyboard */; };
-		AB59B4ED1EAE9BB700650FC8 /* JohnLewisTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59B4EC1EAE9BB700650FC8 /* JohnLewisTestTests.swift */; };
+		AB59B4F81EAE9EFE00650FC8 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59B4F71EAE9EFE00650FC8 /* HTTPClientTests.swift */; };
+		AB59B4FA1EAE9F1000650FC8 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59B4F91EAE9F1000650FC8 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +35,9 @@
 		AB59B4E11EAE9BB700650FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB59B4E31EAE9BB700650FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB59B4E81EAE9BB700650FC8 /* JohnLewisTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JohnLewisTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB59B4EC1EAE9BB700650FC8 /* JohnLewisTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JohnLewisTestTests.swift; sourceTree = "<group>"; };
 		AB59B4EE1EAE9BB700650FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB59B4F71EAE9EFE00650FC8 /* HTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
+		AB59B4F91EAE9F1000650FC8 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				AB59B4D91EAE9BB700650FC8 /* ViewController.swift */,
 				AB59B4DB1EAE9BB700650FC8 /* Main.storyboard */,
 				AB59B4DE1EAE9BB700650FC8 /* Assets.xcassets */,
+				AB59B4F91EAE9F1000650FC8 /* HTTPClient.swift */,
 				AB59B4E01EAE9BB700650FC8 /* LaunchScreen.storyboard */,
 				AB59B4E31EAE9BB700650FC8 /* Info.plist */,
 			);
@@ -90,7 +93,7 @@
 		AB59B4EB1EAE9BB700650FC8 /* JohnLewisTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				AB59B4EC1EAE9BB700650FC8 /* JohnLewisTestTests.swift */,
+				AB59B4F71EAE9EFE00650FC8 /* HTTPClientTests.swift */,
 				AB59B4EE1EAE9BB700650FC8 /* Info.plist */,
 			);
 			path = JohnLewisTestTests;
@@ -152,6 +155,7 @@
 					AB59B4E71EAE9BB700650FC8 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = DVPYSYSD2W;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AB59B4D31EAE9BB700650FC8;
 					};
@@ -203,6 +207,7 @@
 			files = (
 				AB59B4DA1EAE9BB700650FC8 /* ViewController.swift in Sources */,
 				AB59B4D81EAE9BB700650FC8 /* AppDelegate.swift in Sources */,
+				AB59B4FA1EAE9F1000650FC8 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB59B4ED1EAE9BB700650FC8 /* JohnLewisTestTests.swift in Sources */,
+				AB59B4F81EAE9EFE00650FC8 /* HTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,11 +375,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DVPYSYSD2W;
 				INFOPLIST_FILE = JohnLewisTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bridgetech.JohnLewisTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JohnLewisTest.app/JohnLewisTest";
 			};
@@ -385,6 +392,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DVPYSYSD2W;
 				INFOPLIST_FILE = JohnLewisTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
