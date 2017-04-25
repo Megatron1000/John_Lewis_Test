@@ -1,26 +1,112 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5xl-Cz-hvt">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="0bG-gl-SEs">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="5xl-Cz-hvt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fjy-UI-UVL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NTt-Qc-EUg" kind="relationship" relationship="rootViewController" id="SNj-br-lNW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJv-U9-EVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-30" y="216"/>
+        </scene>
+        <!--Dishwashers-->
+        <scene sceneID="FSO-pp-R1x">
+            <objects>
+                <collectionViewController id="NTt-Qc-EUg" customClass="ProductsCollectionViewController" customModule="JohnLewisTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" id="Tf5-Mn-GCh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.87420856952667236" green="0.86323034763336182" blue="0.83138775825500488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="VJd-Kq-M7q">
+                            <size key="itemSize" width="312" height="363"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="Rya-DW-F8O" customClass="ProductCell" customModule="JohnLewisTest" customModuleProvider="target">
+                                <rect key="frame" x="4" y="1" width="312" height="363"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="312" height="363"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P6M-gE-rpb">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="363"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="product_image.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="geY-pw-Emh">
+                                                    <rect key="frame" x="20" y="20" width="272" height="275"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ekd-D6-whZ">
+                                                    <rect key="frame" x="20" y="303" width="272" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-GF-uUW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="31.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                            <color key="textColor" red="0.22363908588886261" green="0.22362922132015228" blue="0.22363592684268951" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUS-xP-rQn">
+                                                            <rect key="frame" x="0.0" y="19.5" width="41" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                        </stackView>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="P6M-gE-rpb" firstAttribute="leading" secondItem="Rya-DW-F8O" secondAttribute="leading" id="Jrg-pV-aTD"/>
+                                    <constraint firstItem="P6M-gE-rpb" firstAttribute="top" secondItem="Rya-DW-F8O" secondAttribute="top" id="eri-3V-Wkb"/>
+                                    <constraint firstItem="P6M-gE-rpb" firstAttribute="centerX" secondItem="Rya-DW-F8O" secondAttribute="centerX" id="qeR-tP-kNc"/>
+                                    <constraint firstItem="P6M-gE-rpb" firstAttribute="centerY" secondItem="Rya-DW-F8O" secondAttribute="centerY" id="xgH-AU-R9v"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="geY-pw-Emh" id="eHQ-LZ-PnQ"/>
+                                    <outlet property="priceLabel" destination="aUS-xP-rQn" id="UCy-Hs-sdM"/>
+                                    <outlet property="titleLabel" destination="xsX-GF-uUW" id="KjI-ja-pYD"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="M4q-v6-XgR" id="Gth-Ua-vD3"/>
+                            <outlet property="delegate" destination="NTt-Qc-EUg" id="WAj-VD-qGq"/>
+                        </connections>
+                    </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" title="Dishwashers" id="p9M-3V-gLr"/>
+                    <connections>
+                        <outlet property="productDataSource" destination="M4q-v6-XgR" id="OXZ-DN-62c"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLh-BZ-4S3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="M4q-v6-XgR" customClass="ProductsCollectionViewDataSource" customModule="JohnLewisTest" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="215"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="product_image.jpeg" width="1000" height="1000"/>
+    </resources>
 </document>

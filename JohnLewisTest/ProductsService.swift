@@ -48,13 +48,9 @@ class ProductsService {
             fatalError("Unable to form URL for request")
         }
 
-        httpClient.makeNetworkRequest(with: url, completion: { [weak self] result in
+        httpClient.makeNetworkRequest(with: url, completion: { result in
 
             DispatchQueue.main.async(execute: {
-
-                guard let strongSelf = self else {
-                    return
-                }
 
                 switch result {
                 case .success(let data):

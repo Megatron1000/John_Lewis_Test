@@ -10,7 +10,10 @@ import Foundation
 
 extension Bundle {
     
-    /// Load JSON object from a file with .json extension
+    /// Loads a json file from the bundle into a dictionary
+    ///
+    /// - Parameter name: the name of the file (excluding the .json extension)
+    /// - Returns: A dictionary or array object deserialized from the json file
     func loadJSON<T>(for name: String) -> T? {
         guard
             let jsonPath = url(forResource: name, withExtension: "json"),

@@ -30,7 +30,8 @@ extension Product: Deserializable {
             let priceDictionary = dictionary["price"] as? [String:Any],
             let price = Price(dictionary: priceDictionary),
             let imageURLString = dictionary["image"] as? String,
-            let image = URL(string: imageURLString) else {
+            /// The image URLs are missing a http prefix
+            let image = URL(string: "https:" + imageURLString) else {
                 return nil
         }
         
