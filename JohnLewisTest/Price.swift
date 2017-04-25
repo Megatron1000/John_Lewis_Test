@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Price {
     
     let value: String
@@ -21,6 +20,8 @@ struct Price {
 extension Price: Deserializable {
     
     init?(dictionary: [String:Any]) {
+        
+        // Normally might think about making this initialiser throwable instead of failable
         guard
             let now = dictionary["now"] as? String,
             let currency = dictionary["currency"] as? String else {
@@ -38,6 +39,7 @@ extension Price: Deserializable {
 extension Price {
     
     var displayString: String {
+        // Test assumes it's always GBP
         return "£\(value)"
     }
     

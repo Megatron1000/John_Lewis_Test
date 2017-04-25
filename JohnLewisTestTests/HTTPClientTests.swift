@@ -1,6 +1,6 @@
 //
 //  HTTPClientTests.swift
-//  NetAborter
+//  JohnLewisTest
 //
 //  Created by Mark Bridges on 27/11/2016.
 //  Copyright © 2016 BridgeTech. All rights reserved.

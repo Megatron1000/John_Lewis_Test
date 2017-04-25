@@ -19,7 +19,7 @@ class ProductTests: XCTestCase {
         
         XCTAssertEqual(product?.productId, "1913267")
         XCTAssertEqual(product?.title, "Bosch SMS53M02GB Freestanding Dishwasher, White")
-        XCTAssertEqual(product?.image.absoluteString, "//johnlewis.scene7.com/is/image/JohnLewis/234326367?")
+        XCTAssertEqual(product?.image.absoluteString, "https://johnlewis.scene7.com/is/image/JohnLewis/234326367?")
         XCTAssertNotNil(product?.price)
 
     }

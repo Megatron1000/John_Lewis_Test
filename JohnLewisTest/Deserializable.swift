@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+/// Declares that the conforming object can be initialised with a dictionary
 protocol Deserializable {
     
     init?(dictionary: [String : Any])

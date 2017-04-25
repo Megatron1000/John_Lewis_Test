@@ -108,17 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				AB59B4D71EAE9BB700650FC8 /* AppDelegate.swift */,
-				AB59B4DB1EAE9BB700650FC8 /* Main.storyboard */,
+				AB59B51D1EAF6B9200650FC8 /* Storyboards */,
+				AB59B5201EAF6BCB00650FC8 /* ViewControllers */,
+				AB59B51E1EAF6BAC00650FC8 /* Views */,
+				AB59B5231EAF6C1400650FC8 /* Model */,
 				AB59B4DE1EAE9BB700650FC8 /* Assets.xcassets */,
-				AB59B4F91EAE9F1000650FC8 /* HTTPClient.swift */,
-				AB59B5131EAEB57000650FC8 /* ProductsCollectionViewController.swift */,
-				AB59B5151EAEB62100650FC8 /* ProductCell.swift */,
-				AB59B5191EAEB74F00650FC8 /* ProductsCollectionViewDataSource.swift */,
-				AB59B5011EAEA4D800650FC8 /* ProductsService.swift */,
-				AB59B4FD1EAEA15400650FC8 /* Product.swift */,
-				AB59B4FF1EAEA18200650FC8 /* Price.swift */,
-				AB59B5031EAEA53C00650FC8 /* Deserializable.swift */,
-				AB59B4E01EAE9BB700650FC8 /* LaunchScreen.storyboard */,
 				AB59B4E31EAE9BB700650FC8 /* Info.plist */,
 			);
 			path = JohnLewisTest;
@@ -131,14 +125,92 @@
 				AB59B5091EAEA65B00650FC8 /* ProductServiceTests.swift */,
 				AB59B5051EAEA5E200650FC8 /* PriceTests.swift */,
 				AB59B5071EAEA5F400650FC8 /* ProductTests.swift */,
-				AB59B50B1EAEAC4D00650FC8 /* Bundle+JSON.swift */,
-				AB59B4FB1EAEA10700650FC8 /* products.json */,
-				AB59B50F1EAEAD4500650FC8 /* product.json */,
-				AB59B50D1EAEAD3A00650FC8 /* price.json */,
+				AB59B51C1EAF6B8000650FC8 /* Extensions */,
+				AB59B51B1EAF6B7400650FC8 /* Fixtures */,
 				AB59B5111EAEB4B500650FC8 /* product_image.jpeg */,
 				AB59B4EE1EAE9BB700650FC8 /* Info.plist */,
 			);
 			path = JohnLewisTestTests;
+			sourceTree = "<group>";
+		};
+		AB59B51B1EAF6B7400650FC8 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B4FB1EAEA10700650FC8 /* products.json */,
+				AB59B50F1EAEAD4500650FC8 /* product.json */,
+				AB59B50D1EAEAD3A00650FC8 /* price.json */,
+			);
+			name = Fixtures;
+			sourceTree = "<group>";
+		};
+		AB59B51C1EAF6B8000650FC8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B50B1EAEAC4D00650FC8 /* Bundle+JSON.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		AB59B51D1EAF6B9200650FC8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B4DB1EAE9BB700650FC8 /* Main.storyboard */,
+				AB59B4E01EAE9BB700650FC8 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		AB59B51E1EAF6BAC00650FC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B5151EAEB62100650FC8 /* ProductCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AB59B51F1EAF6BB900650FC8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B5031EAEA53C00650FC8 /* Deserializable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		AB59B5201EAF6BCB00650FC8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B5131EAEB57000650FC8 /* ProductsCollectionViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AB59B5211EAF6BE100650FC8 /* Model Structs */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B4FD1EAEA15400650FC8 /* Product.swift */,
+				AB59B4FF1EAEA18200650FC8 /* Price.swift */,
+			);
+			name = "Model Structs";
+			sourceTree = "<group>";
+		};
+		AB59B5221EAF6BEC00650FC8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B4F91EAE9F1000650FC8 /* HTTPClient.swift */,
+				AB59B5011EAEA4D800650FC8 /* ProductsService.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		AB59B5231EAF6C1400650FC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB59B5191EAEB74F00650FC8 /* ProductsCollectionViewDataSource.swift */,
+				AB59B5221EAF6BEC00650FC8 /* Networking */,
+				AB59B5211EAF6BE100650FC8 /* Model Structs */,
+				AB59B51F1EAF6BB900650FC8 /* Protocols */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

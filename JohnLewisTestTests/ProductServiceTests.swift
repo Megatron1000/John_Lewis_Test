@@ -1,6 +1,6 @@
 //
 //  ProductServiceTests.swift
-//  NetAborter
+//  JohnLewisTest
 //
 //  Created by Mark Bridges on 27/11/2016.
 //  Copyright © 2016 BridgeTech. All rights reserved.
@@ -38,7 +38,7 @@ class ProductServiceTests: XCTestCase {
 
             switch result {
             case .success(let products):
-                XCTAssertEqual(products.count, 20)
+                XCTAssertEqual(products.count, 20, "The products json fixture contains 20 items, we should have deserialized 20")
 
             default:
                 XCTFail("Call with valid response failed")
@@ -174,5 +174,4 @@ class ProductServiceTests: XCTestCase {
         }
     }
     
-    //
 }

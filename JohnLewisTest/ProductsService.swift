@@ -1,6 +1,6 @@
 //
 //  ProductsService.swift
-//  NetAborter
+//  JohnLewisTest
 //
 //  Created by Mark Bridges on 24/11/2016.
 //  Copyright © 2016 BridgeTech. All rights reserved.
@@ -20,12 +20,12 @@ class ProductsService {
 
     // MARK: Result Enums
 
-    enum RetreiveProductsResult {
+    enum  RetrieveProductsResult {
         case success(products: [Product])
         case failure(error: Error)
     }
 
-    enum RetreiveProductImageResult {
+    enum  RetrieveProductImageResult {
         case success(productImage: UIImage)
         case failure(error: Error)
     }
@@ -42,15 +42,13 @@ class ProductsService {
 
     // MARK: Network calls
 
-    func retrieveProducts(with completion: @escaping ((RetreiveProductsResult) -> Void)) {
+    func retrieveProducts(with completion: @escaping (( RetrieveProductsResult) -> Void)) {
 
         guard let url = URL(string: "https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20") else {
             fatalError("Unable to form URL for request")
         }
 
         httpClient.makeNetworkRequest(with: url, completion: { result in
-
-            DispatchQueue.main.async(execute: {
 
                 switch result {
                 case .success(let data):
@@ -74,16 +72,12 @@ class ProductsService {
                     completion(.failure(error: error))
                 }
 
-            })
-
         })
     }
 
-    func retrieveImage(for product: Product, completion: @escaping ((RetreiveProductImageResult) -> Void)) {
+    func retrieveImage(for product: Product, completion: @escaping (( RetrieveProductImageResult) -> Void)) {
 
         httpClient.makeNetworkRequest(with: product.image, completion: { result in
-
-            DispatchQueue.main.async(execute: {
 
                 switch result {
                 case .success(let data):
@@ -100,8 +94,6 @@ class ProductsService {
                     completion(.failure(error: error))
 
                 }
-
-            })
 
         })
 

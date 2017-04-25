@@ -10,7 +10,11 @@ import UIKit
 
 class ProductsCollectionViewController: UICollectionViewController {
     
+    // MARK: IBOutlets
+    
     @IBOutlet var productDataSource: ProductsCollectionViewDataSource!
+    
+    // MARK: LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +22,18 @@ class ProductsCollectionViewController: UICollectionViewController {
         productDataSource.reloadData { [weak self] result in
             switch result {
             case .success:
-                self?.collectionView?.reloadData()
+                DispatchQueue.main.async(execute: {
+                    self?.collectionView?.reloadData()
+                })
                 
             case .failure(let error):
-                let alertController = UIAlertController(title: "ERROR",
-                                                        message: error.localizedDescription,
-                                                        preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
-                self?.present(alertController, animated: true, completion: nil)
+                DispatchQueue.main.async(execute: {
+                    let alertController = UIAlertController(title: "ERROR",
+                                                            message: error.localizedDescription,
+                                                            preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self?.present(alertController, animated: true, completion: nil)
+                })
             }
         }
     }

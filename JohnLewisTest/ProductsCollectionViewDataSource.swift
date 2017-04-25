@@ -54,12 +54,12 @@ extension ProductsCollectionViewDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let product = products[indexPath.row]
-        
         guard
             let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as? ProductCell else {
-                fatalError("Wrong cell deqeued for identifier \(ProductCell.identifier)")
+                fatalError("Unable dequeue cell for identifier \(ProductCell.identifier)")
         }
+        
+        let product = products[indexPath.row]
         
         productCell.titleLabel.text = product.title
         productCell.priceLabel.text = product.price.displayString
@@ -70,10 +70,13 @@ extension ProductsCollectionViewDataSource: UICollectionViewDataSource {
                 guard collectionView.indexPath(for: productCell) == indexPath else {
                     return // the cell was reused before we downloaded the image
                 }
-                productCell.imageView.image = productImage
+                DispatchQueue.main.async(execute: {
+                    productCell.imageView.image = productImage
+                })
                 
-            default:
-                break
+            case .failure(let error):
+                // Swallow this error
+                print("Error getting image \(error)")
             }
         })
         

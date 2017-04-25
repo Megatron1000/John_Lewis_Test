@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Product {
     
     let productId: String
@@ -24,6 +23,7 @@ extension Product: Deserializable {
     
     init?(dictionary: [String:Any]) {
         
+        // Normally might think about making this initialiser throwable instead of failable
         guard
             let productId = dictionary["productId"] as? String,
             let title = dictionary["title"] as? String,
