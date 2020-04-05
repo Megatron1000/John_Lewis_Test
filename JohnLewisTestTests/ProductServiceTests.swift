@@ -23,11 +23,11 @@ class ProductServiceTests: XCTestCase {
         XCTAssertEqual(httpClientMock.urlOfLastRequest, URL(string:"https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20"))
     }
 
-    func testRetrieveProductsReturnsProducts() {
+    func testRetrieveProductsReturnsProducts() throws {
 
         let bundle = Bundle(for: ProductServiceTests.self)
         let jsonFixtureUrl = bundle.url(forResource: "products", withExtension: "json")!
-        let data = try! Data(contentsOf: jsonFixtureUrl)
+        let data = try Data(contentsOf: jsonFixtureUrl)
 
         let httpClientMock = HTTPClientMock()
         httpClientMock.mockedResult = HTTPClient.HTTPClientResult.success(data: data)
@@ -76,80 +76,6 @@ class ProductServiceTests: XCTestCase {
         }
     }
 
-    func testRetrieveImageForProductCallsTheCorrectURL() {
-
-        let httpClientMock = HTTPClientMock()
-        httpClientMock.mockedResult = HTTPClient.HTTPClientResult.success(data: Data())
-
-        let productService = ProductsService(httpClient: httpClientMock)
-
-        let price = Price(value: "", currency: "")
-        let product = Product(productId: "", price: price, title: "", image: URL(string: "http://anywhere")!)
-
-        productService.retrieveImage(for: product, completion: { _ in })
-
-        XCTAssertEqual(httpClientMock.urlOfLastRequest, URL(string:"http://anywhere"))
-    }
-
-    func testRetrieveImageForProductReturnsAProductImage() {
-
-        let bundle = Bundle(for: ProductServiceTests.self)
-        let imageFixtureUrl = bundle.url(forResource: "product_image", withExtension: "jpeg")!
-        let data = try! Data(contentsOf: imageFixtureUrl)
-
-        let httpClientMock = HTTPClientMock()
-        httpClientMock.mockedResult = HTTPClient.HTTPClientResult.success(data: data)
-
-        let productService = ProductsService(httpClient: httpClientMock)
-
-        let price = Price(value: "", currency: "")
-        let product = Product(productId: "", price: price, title: "", image: URL(string: "http://anywhere")!)
-
-        productService.retrieveImage(for: product, completion: { result in
-
-            switch result {
-            case .success(let productImage):
-                XCTAssertNotNil(productImage)
-
-            default:
-                XCTFail("Call with valid response failed")
-
-            }
-        })
-    }
-
-    func testRetrieveImageForProductReturnsAnErrorWhenCallFails() {
-
-        let testError = ProductsService.ProductsServiceError.undeserializableResponse
-
-        let httpClientMock = HTTPClientMock()
-        httpClientMock.mockedResult = HTTPClient.HTTPClientResult.failure(error: testError)
-
-        let productService = ProductsService(httpClient: httpClientMock)
-
-        let price = Price(value: "", currency: "")
-        let product = Product(productId: "", price: price, title: "", image: URL(string: "http://anywhere")!)
-
-        productService.retrieveImage(for: product, completion: { result in
-
-            switch result {
-            case .failure(let error):
-                switch error {
-                case ProductsService.ProductsServiceError.undeserializableResponse:
-                    XCTAssert(true)
-
-                default:
-                    XCTFail("Wrong error return")
-
-                }
-
-            default:
-                XCTFail("Call with invalid response succeeded")
-
-            }
-        })
-
-    }
 
     // MARK: HTTPClientMock
 

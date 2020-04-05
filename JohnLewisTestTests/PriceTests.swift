@@ -11,14 +11,14 @@ import XCTest
 
 class PriceTests: XCTestCase {
         
-    func testPriceDeserialization() {
+    func testPriceDeserialization() throws {
+                
+        let priceData = try Bundle(for: PriceTests.self).loadJSONData(resource: "price")!
+
+        let price = try JSONDecoder().decode(Price.self, from: priceData)
         
-        let priceDictionary: [String:Any] = Bundle(for: PriceTests.self).loadJSON(for: "price")!
-        
-        let price = Price(dictionary: priceDictionary)
-        
-        XCTAssertEqual(price?.currency, "GBP")
-        XCTAssertEqual(price?.value, "329.00")
+        XCTAssertEqual(price.currency, "GBP")
+        XCTAssertEqual(price.value, "329.00")
     }
     
     func testPriceDisplayString() {

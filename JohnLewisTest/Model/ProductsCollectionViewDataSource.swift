@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsCollectionViewDataSource: NSObject {
+final class ProductsCollectionViewDataSource: NSObject {
     
     // MARK: Results enum
     
@@ -63,23 +63,7 @@ extension ProductsCollectionViewDataSource: UICollectionViewDataSource {
         
         productCell.titleLabel.text = product.title
         productCell.priceLabel.text = product.price.displayString
-        
-        productsService.retrieveImage(for: product, completion: { result in
-            switch result {
-            case .success(let productImage):
-                guard collectionView.indexPath(for: productCell) == indexPath else {
-                    return // the cell was reused before we downloaded the image
-                }
-                DispatchQueue.main.async(execute: {
-                    productCell.imageView.image = productImage
-                })
                 
-            case .failure(let error):
-                // Swallow this error
-                print("Error getting image \(error)")
-            }
-        })
-        
         return productCell
     }
     

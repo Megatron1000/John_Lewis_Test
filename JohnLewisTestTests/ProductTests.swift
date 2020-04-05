@@ -11,16 +11,15 @@ import XCTest
 
 class ProductTests: XCTestCase {
         
-    func testProductDeserialization() {
+    func testProductDeserialization() throws {
         
-        let productDictionary: [String:Any] = Bundle(for: PriceTests.self).loadJSON(for: "product")!
+        let productData = try Bundle(for: PriceTests.self).loadJSONData(resource: "product")!
+                
+        let product = try JSONDecoder().decode(Product.self, from: productData)
         
-        let product = Product(dictionary: productDictionary)
-        
-        XCTAssertEqual(product?.productId, "1913267")
-        XCTAssertEqual(product?.title, "Bosch SMS53M02GB Freestanding Dishwasher, White")
-        XCTAssertEqual(product?.image.absoluteString, "https://johnlewis.scene7.com/is/image/JohnLewis/234326367?")
-        XCTAssertNotNil(product?.price)
+        XCTAssertEqual(product.productId, "1913267")
+        XCTAssertEqual(product.title, "Bosch SMS53M02GB Freestanding Dishwasher, White")
+        XCTAssertNotNil(product.price)
 
     }
 

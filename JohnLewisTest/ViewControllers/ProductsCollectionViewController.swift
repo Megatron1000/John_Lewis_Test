@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsCollectionViewController: UICollectionViewController {
+final class ProductsCollectionViewController: UICollectionViewController {
     
     // MARK: IBOutlets
     
